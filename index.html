@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 class="title">My Shop</h1>
+
+    <button id="darkModeBtn" class="dark-btn" onclick="toggleDarkMode()">
+        🌙 Dark Mode
+    </button>
+
+    <!-- Search Box -->
+    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="applyFilters()">
+
+    <!-- Category Buttons -->
+
+    <div class="filters">
+        <!-- Price Sort -->
+
+        <select id="priceSort" onchange="sortProducts()">
+            <option value="">Sort by Price</option>
+            <option value="low">Low to High</option>
+            <option value="high">High to Low</option>
+        </select>
+
+        <button onclick="filterProduct('all')">All</button>
+        <button onclick="filterProduct('mobile')">Mobile</button>
+        <button onclick="filterProduct('laptop')">Laptop</button>
+        <button onclick="filterProduct('accessories')">Accessories</button>
+    </div>
+
+
+    <div class="container" id="productList">
+
+
+
+        <!-- PRODUCTS -->
+
+        <div class="product" data-category="mobile">
+            <img src="images/mobile.png" alt="Mobile">
+            <h3>Mobile</h3>
+            <p>₹10000</p>
+            <button onclick="addToCart('Mobile',10000)">Add to Cart</button>
+        </div>
+
+
+
+        <div class="product" data-category="laptop">
+            <img src="images/laptop.png" alt="laptop">
+            <h3>laptop</h3>
+            <p>₹40000</p>
+            <button onclick="addToCart('laptop',40000)">Add to Cart</button>
+        </div>
+
+
+        <div class="product" data-category="accessories">
+            <img src="images/headphone.png" alt="headphone">
+            <h3>headphone</h3>
+            <p>₹2000</p>
+            <button onclick="addToCart('Headphone',2000)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-category="accessories">
+            <img src="images/watch.png" alt="watch">
+            <h3>watch</h3>
+            <p>₹493081477</p>
+            <button onclick="addToCart('Watch',493081477)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-category="accessories">
+            <img src="images/mouse.png" alt="Mouse">
+            <h3>Wireless Mouse</h3>
+            <p>₹800</p>
+            <button onclick="addToCart('Wireless Mouse',800)">Add to Cart</button>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product" data-category="accessories">
+            <img src="images/keyboard.png" alt="Keyboard">
+            <h3>Keyboard</h3>
+            <p>₹1200</p>
+            <button onclick="addToCart('Keyboard',1200)">Add to Cart</button>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product" data-category="accessories">
+            <img src="images/speaker.png" alt="Speaker">
+            <h3>Bluetooth Speaker</h3>
+            <p>₹2500</p>
+            <button onclick="addToCart('Bluetooth Speaker',2500)">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <!-- CART -->
+    <div class="cart">
+        <h2>Cart</h2>
+        <div id="cartItems"></div>
+        <h3>Total: ₹<span id="total">0</span></h3>
+    </div>
+
+    <a href="checkout.html">
+        <button>Go to Checkout</button>
+    </a>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 class="title">Checkout</h1>
+
+<div class="checkout-container">
+
+    <form id="checkoutForm">
+        <label>Full Name</label>
+        <input type="text" required>
+
+        <label>Address</label>
+        <textarea required></textarea>
+
+        <label>Phone Number</label>
+        <input type="tel" required>
+
+        <label>Payment Method</label>
+
+        <div class="payment">
+            <input type="radio" name="payment" checked> Cash on Delivery  
+            <br>
+            <input type="radio" name="payment"> UPI  
+            <br>
+            <input type="radio" name="payment"> Card  
+        </div>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+    <p id="successMsg"></p>
+
+</div>
+
+<script>
+document.getElementById("checkoutForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    // cart ko order ke naam se save karo
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    localStorage.setItem("order", JSON.stringify(cart));
+
+    // cart clear
+    localStorage.removeItem("cart");
+
+    // order summary page par redirect
+    window.location.href = "order-summary.html";
+});
+</script>
+
+
+</body>
+</html>

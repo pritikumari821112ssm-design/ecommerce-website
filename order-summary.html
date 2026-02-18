@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 class="title">Order Summary</h1>
+
+<div class="order-container">
+    <div id="orderItems"></div>
+    <h3>Total Amount: ₹<span id="orderTotal">0</span></h3>
+    <p class="success">✅ Your order has been placed successfully!</p>
+</div>
+
+<script>
+let order = JSON.parse(localStorage.getItem("order")) || [];
+let total = 0;
+let orderDiv = document.getElementById("orderItems");
+
+if (order.length === 0) {
+    orderDiv.innerHTML = "<p>No order found</p>";
+} else {
+    order.forEach(item => {
+        total += item.price * item.qty;
+
+        orderDiv.innerHTML += `
+            <div class="order-item">
+                <strong>${item.name}</strong><br>
+                Price: ₹${item.price}<br>
+                Quantity: ${item.qty}
+            </div>
+        `;
+    });
+}
+
+document.getElementById("orderTotal").innerText = total;
+</script>
+
+</body>
+</html>
+
+
